@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #f5f5f7;
+  background: #fff;
+  color: #000;
+  letter-spacing: -0.05em;
+  line-height: 1.4;
+}
