@@ -14,9 +14,11 @@ export default function Home() {
       <main
         className={`flex min-h-screen max-w-full flex-col items-center justify-start ${inter.className}`}
       >
+        <Hero />
         <About />
         <Skills />
         <Tech />
+        <Goodbye />
       </main>
     </>
   );

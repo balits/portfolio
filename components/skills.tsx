@@ -1,17 +1,18 @@
 import { useScroll } from "framer-motion";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 export const Skills = () => {
   return (
     <>
       <section className="w-full overflow-x-hidden ">
-        <div className="px-8 py-40 w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
+        <div className="px-8 py-48 w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
           <List title="What I can do" content={Already} />
         </div>
       </section>
 
       <section className="w-full overflow-x-hidden  bg-black">
-        <div className="text-white px-8 py-40  min-h-[60vh] w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
+        <div className="text-white px-8 py-48  min-h-[60vh] w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
           <List title="Currently learning" content={Currently} />
         </div>
       </section>
@@ -61,10 +62,15 @@ const List = ({
 
   return (
     <>
-      <h2 className=" text-xl md:text-2xl mb-4 md:mb-8">{title}</h2>
+      <h2
+        className=" text-xl md:text-2xl mb-6 md:mb-10 transition-opacity duration-500"
+        style={{ opacity: visibelIndex === 0 ? 1 : 0.2 }}
+      >
+        {title}
+      </h2>
       <ul
         ref={refContainer}
-        className="pl-6 text-2xl md:text-4xl xl:text-5xl w-full flex-col items-start justify-start gap-y-10 md:gap-y-16 flex"
+        className="pl-6 text-2xl md:text-4xl xl:text-5xl w-full flex-col items-start justify-start gap-y-12 md:gap-y-20 flex"
       >
         {content.map((s, i) => (
           <li
@@ -84,7 +90,23 @@ const List = ({
 const Already = [
   {
     title: "Frontend work",
-    body: "I’m profficient in many frontend frameworks, such as React, Svelte or Solid.",
+    body: (
+      <>
+        I’m profficient in many frontend frameworks, such as{" "}
+        <Link href="x" className="text-blueDark">
+          React
+        </Link>
+        ,{" "}
+        <Link href="x" className="text-blueDark">
+          Svelte
+        </Link>{" "}
+        or{" "}
+        <Link href="x" className="text-blueDark">
+          Solid
+        </Link>
+        .
+      </>
+    ),
   },
   {
     title: "API-s",
@@ -99,7 +121,18 @@ const Already = [
 const Currently = [
   {
     title: "Backend solutions",
-    body: "I’m heavily invested in high performance backend technologies, like the Actis web, and Go’s Fiber",
+    body: (
+      <>
+        I’m heavily invested in high performance backend technologies, like{" "}
+        <Link href="x" className="text-blueLight">
+          Actis Web
+        </Link>
+        , and{" "}
+        <Link href="xy" className="text-blueLight">
+          Go Fiber
+        </Link>
+      </>
+    ),
   },
   {
     title: "Docker",
