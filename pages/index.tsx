@@ -12,13 +12,11 @@ export default function Home() {
   return (
     <>
       <main
-        className={`flex min-h-screen flex-col items-center justify-start ${inter.className}`}
+        className={`flex min-h-screen max-w-full flex-col items-center justify-start ${inter.className}`}
       >
-        <Hero />
         <About />
         <Skills />
         <Tech />
-        <Goodbye />
       </main>
     </>
   );
