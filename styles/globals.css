@@ -12,3 +12,21 @@ body {
   letter-spacing: -0.05em;
   line-height: 1.2;
 }
+
+@layer base {
+  .link-dark {
+    @apply text-blueLight transition-opacity hover:opacity-80;
+  }
+
+  .link-light {
+    @apply text-blueDark transition-opacity hover:text-blueLight;
+  }
+
+  .whiteOnBlack {
+    @apply text-offWhite bg-black;
+  }
+
+  .blackOnWhite {
+    @apply text-darkGray bg-white;
+  }
+}

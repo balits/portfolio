@@ -10,17 +10,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <>
-      <main
-        className={`flex min-h-screen max-w-full flex-col items-center justify-start ${inter.className}`}
-      >
-        <Hero />
-        <About />
-        <Skills />
-        <Tech />
-        <Goodbye />
-      </main>
-    </>
+    <main
+      className={`selection:bg-blue-500 selection:text-gray-100 flex min-h-screen  max-w-full flex-col items-center justify-start ${inter.className}`}
+    >
+      <Hero />
+      <Skills />
+      <Tech />
+      <Goodbye />
+    </main>
   );
 }
 

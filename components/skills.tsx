@@ -6,14 +6,18 @@ export const Skills = () => {
   return (
     <>
       <section className="w-full overflow-x-hidden ">
-        <div className="px-8 py-48 w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
-          <List title="What I can do" content={Already} />
+        <div className=" px-8 py-48 w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
+          <List title="What I can do" content={Already} showFirstLine={true} />
         </div>
       </section>
 
-      <section className="w-full overflow-x-hidden  bg-black">
-        <div className="text-white px-8 py-48  min-h-[60vh] w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
-          <List title="Currently learning" content={Currently} />
+      <section className="w-full overflow-x-hidden  whiteOnBlack ">
+        <div className=" px-8 py-48  w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
+          <List
+            title="Currently learning"
+            content={Currently}
+            showFirstLine={false}
+          />
         </div>
       </section>
     </>
@@ -23,19 +27,23 @@ export const Skills = () => {
 const List = ({
   title,
   content,
+  showFirstLine,
 }: {
   title: string;
   content: typeof Already;
+  showFirstLine: boolean;
 }) => {
   const refContainer = useRef<HTMLUListElement>(null);
-  const [visibelIndex, setVisibleIndex] = useState(0);
-  const { scrollY, scrollYProgress } = useScroll({
+
+  const [visibleIndex, setVisibleIndex] = useState(0);
+
+  const { scrollY } = useScroll({
     target: refContainer,
     offset: ["start end", "end end"],
   });
 
   useEffect(() => {
-    scrollY.on("change", (lastVal) => {
+    scrollY.on("change", () => {
       if (!refContainer.current) return;
 
       const { clientHeight, offsetTop } = refContainer.current;
@@ -46,13 +54,12 @@ const List = ({
           clientHeight + halfScreen,
           Math.max(-screen, scrollY.get() - offsetTop) + halfScreen
         ) / clientHeight;
-      const i = Math.floor(Math.min(3 - 0.5, Math.max(0, percent * 3)));
 
-      console.log(percent, i);
-
-      const idx = Math.floor((scrollY.get() + halfScreen) / screen);
-
-      setVisibleIndex(i);
+      setVisibleIndex(
+        Math.floor(
+          Math.min(3 - 0.5, Math.max(showFirstLine ? 0 : -1, percent * 3))
+        )
+      );
     });
 
     return () => {
@@ -64,7 +71,7 @@ const List = ({
     <>
       <h2
         className=" text-xl md:text-2xl mb-6 md:mb-10 transition-opacity duration-500"
-        style={{ opacity: visibelIndex === 0 ? 1 : 0.2 }}
+        style={{ opacity: visibleIndex === 0 ? 1 : 0.2 }}
       >
         {title}
       </h2>
@@ -76,7 +83,7 @@ const List = ({
           <li
             key={i}
             className="flex-none w-fit inline-block transition-opacity duration-500"
-            style={{ opacity: i === visibelIndex ? 1 : 0.2 }}
+            style={{ opacity: i === visibleIndex ? 1 : 0.2 }}
           >
             <span className="font-bold after:content-[':']">{s.title}</span>{" "}
             <span>{s.body}</span>
@@ -89,19 +96,23 @@ const List = ({
 
 const Already = [
   {
-    title: "Frontend work",
+    title: "Frontend",
     body: (
       <>
         I’m profficient in many frontend frameworks, such as{" "}
-        <Link href="x" className="text-blueDark">
+        <Link target="_blank" href="https://svelte.dev/" className="link-light">
           React
         </Link>
         ,{" "}
-        <Link href="x" className="text-blueDark">
+        <Link target="_blank" href="https://svelte.dev/" className="link-light">
           Svelte
         </Link>{" "}
         or{" "}
-        <Link href="x" className="text-blueDark">
+        <Link
+          target="_blank"
+          href="https://www.solidjs.com/"
+          className="link-light"
+        >
           Solid
         </Link>
         .
@@ -109,12 +120,12 @@ const Already = [
     ),
   },
   {
-    title: "API-s",
-    body: "I'm familiar with GraphQL and Rest API-s, and can use their full power in the frontend.",
-  },
-  {
     title: "UI / UX",
     body: "For me, creating responsive, accessible and beautifull apps is walk in the park.",
+  },
+  {
+    title: "API Integration",
+    body: "I'm used to working with both GraphQL and Rest API-s.",
   },
 ];
 
@@ -123,23 +134,42 @@ const Currently = [
     title: "Backend solutions",
     body: (
       <>
-        I’m heavily invested in high performance backend technologies, like{" "}
-        <Link href="x" className="text-blueLight">
-          Actis Web
-        </Link>
-        , and{" "}
-        <Link href="xy" className="text-blueLight">
-          Go Fiber
+        I’m deep into learning high performance frameworks, such as Go&apos;s{" "}
+        <Link target="_blank" href="https://gofiber.io/" className="link-dark">
+          Fiber,
+        </Link>{" "}
+        <Link target="_blank" href="https://gofiber.io/" className="link-dark">
+          Gin
+        </Link>{" "}
+        and Rust&apos;s{" "}
+        <Link
+          target="_blank"
+          href="https://docs.rs/axum/latest/axum/"
+          className="link-dark"
+        >
+          Axum.
         </Link>
       </>
     ),
   },
   {
-    title: "Docker",
-    body: " Cloud infrastructure is everywhere. Thanks to Go I can darara.",
+    title: "Containerization",
+    body: "For my backend projects, I like to use Docker, Docker Compose and Kubernetes.",
   },
   {
-    title: "DevOps",
-    body: "I want to darara and dururu my way throguh college.",
+    title: "Native Apps",
+    body: (
+      <>
+        Lately I&apos;ve been enjoying{" "}
+        <Link href="https://reactnative.dev/" className="link-dark">
+          React Native,
+        </Link>{" "}
+        and in the future I will give{" "}
+        <Link href="https://reactnative.dev/" className="link-dark">
+          Swift
+        </Link>{" "}
+        a shot too.
+      </>
+    ),
   },
 ];
