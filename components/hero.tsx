@@ -30,12 +30,12 @@ export const Hero = () => {
   };
   return (
     <section className="relative h-screen px-8 text-darkGray w-full max-w-screen  flex flex-col items-center justify-end pb-[10vh] md:pb-[20vh] ">
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 h-full">
         <motion.div style={{ opacity }} className="relative w-full h-full">
           <Image
             src={"/bg.png"}
             fill
-            className="inset-0 w-full h-full object-cover "
+            className="inset-0 w-full h-full object-cover aspect-video"
             alt="bgImage"
           />
         </motion.div>
