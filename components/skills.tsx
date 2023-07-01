@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 export const Skills = () => {
   return (
     <>
-      <section className="mt-[30vh] w-full overflow-x-hidden ">
+      <section className="md:mt-[10vh] xl:mt-[30vh] w-full overflow-x-hidden ">
         <div className=" px-8 py-56 w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
           <List title="Skills" content={Already} showFirstLine={true} />
         </div>
