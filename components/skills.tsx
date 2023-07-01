@@ -1,4 +1,5 @@
 import { useScroll } from "framer-motion";
+import { url } from "inspector";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -6,18 +7,14 @@ export const Skills = () => {
   return (
     <>
       <section className="w-full overflow-x-hidden ">
-        <div className=" px-8 py-48 w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
-          <List title="What I can do" content={Already} showFirstLine={true} />
+        <div className=" px-8 py-56 w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
+          <List title="Skills" content={Already} showFirstLine={true} />
         </div>
       </section>
 
       <section className="w-full overflow-x-hidden  whiteOnBlack ">
-        <div className=" px-8 py-48  w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
-          <List
-            title="Currently learning"
-            content={Currently}
-            showFirstLine={false}
-          />
+        <div className=" px-8 py-56  w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
+          <List title="Learning" content={Currently} showFirstLine={false} />
         </div>
       </section>
     </>
@@ -121,54 +118,66 @@ const Already = [
   },
   {
     title: "UI / UX",
-    body: "For me, creating responsive, accessible and beautifull apps is walk in the park.",
+    body: "Creating responsive, accessible and beautifull apps is a priority for me.",
   },
   {
     title: "API Integration",
-    body: "I'm used to working with both GraphQL and Rest API-s.",
+    body: "I'm familiar with both GraphQL and Rest API-s.",
   },
 ];
 
 const Currently = [
   {
-    title: "Backend solutions",
+    title: "Backend",
     body: (
       <>
-        I’m deep into learning high performance frameworks, such as Go&apos;s{" "}
+        I am currently learning high performace backend frameworks, such
+        as&nbsp;
         <Link target="_blank" href="https://gofiber.io/" className="link-dark">
-          Fiber,
+          Go Fiber,
         </Link>{" "}
         <Link target="_blank" href="https://gofiber.io/" className="link-dark">
           Gin
         </Link>{" "}
-        and Rust&apos;s{" "}
+        and{" "}
         <Link
           target="_blank"
           href="https://docs.rs/axum/latest/axum/"
           className="link-dark"
         >
-          Axum.
+          Rust&apos; Axum.
         </Link>
       </>
     ),
   },
   {
     title: "Containerization",
-    body: "For my backend projects, I like to use Docker, Docker Compose and Kubernetes.",
+    body: (
+      <>
+        Recently I am working more and more with&nbsp;
+        <Link href="https://www.docker.com/" className="link-dark">
+          Docker,
+        </Link>
+        &nbsp;and&nbsp;
+        <Link href="https://kubernetes.io/" className="link-dark">
+          Kubernetes.
+        </Link>
+      </>
+    ),
   },
   {
     title: "Native Apps",
     body: (
       <>
-        Lately I&apos;ve been enjoying{" "}
+        Lately I&apos;ve been trying out{" "}
         <Link href="https://reactnative.dev/" className="link-dark">
           React Native,
         </Link>{" "}
-        and in the future I will give{" "}
+        and in the future I plan to use{" "}
         <Link href="https://reactnative.dev/" className="link-dark">
           Swift
         </Link>{" "}
-        a shot too.
+        too.
       </>
     ),
   },

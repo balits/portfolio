@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 export const Tech = () => {
   return (
-    <section className="blackOnWhite relative w-full h-[90vh] flex flex-col  gap-28 items-center justify-center">
+    <section className="blackOnWhite relative w-full h-[50vh] flex flex-col  gap-28 items-center justify-center">
       <Marquee gradient speed={100} className="">
         <Line />
       </Marquee>
