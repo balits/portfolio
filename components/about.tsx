@@ -1,3 +1,4 @@
+import React from "react";
 export const About = () => {
   return (
     <section className="blackOnWhite w-full  px-8 flex items-center justify-center">

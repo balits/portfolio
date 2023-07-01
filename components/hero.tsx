@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
-import { Variants, motion } from "framer-motion";
+import React from "react";
+import { Variants, motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 
 export const Hero = () => {
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const v: Variants = {
     initial: {
       opacity: 0,
@@ -26,12 +29,23 @@ export const Hero = () => {
     },
   };
   return (
-    <section className="h-[100vh] px-8 blackOnWhite w-full max-w-screen  flex flex-col items-center justify-end pb-[10vh] md:pb-[20vh] ">
+    <section className="relative h-screen px-8 text-darkGray w-full max-w-screen  flex flex-col items-center justify-end pb-[10vh] md:pb-[20vh] ">
+      <div className="absolute inset-0 -z-10">
+        <motion.div style={{ opacity }} className="relative w-full h-full">
+          <Image
+            src={"/bg.png"}
+            fill
+            className="inset-0 w-full h-full object-cover "
+            alt="bgImage"
+          />
+        </motion.div>
+      </div>
+
       <motion.div
         variants={c}
         initial="initial"
         animate="animate"
-        className=" h-fit  max-w-screen-lg  flex flex-col items-center justify-center"
+        className=" h-fit  mx-auto w-fit max-w-screen-lg  flex flex-col items-center justify-center"
       >
         <motion.h1
           variants={v}
@@ -45,7 +59,7 @@ export const Hero = () => {
         </motion.p>
         <motion.button
           variants={v}
-          className=" xl:text-xl  rounded-full py-2 px-6 bg-darkGray text-white transition-opacity hover:opacity-90"
+          className=" xl:text-xl  rounded-full py-2 px-6 bg-darkGray text-white transition-opacity hover:opacity-80"
         >
           Curriculum&nbsp;Vitae
         </motion.button>

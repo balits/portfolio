@@ -1,5 +1,5 @@
+import React, { useRef } from "react";
 import { Variants, motion, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
 import { GrLinkedin, GrFacebook, GrInstagram, GrMail } from "react-icons/gr";
 
 export const Goodbye = () => {

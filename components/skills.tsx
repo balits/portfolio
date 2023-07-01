@@ -1,12 +1,11 @@
 import { useScroll } from "framer-motion";
-import { url } from "inspector";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export const Skills = () => {
   return (
     <>
-      <section className="w-full overflow-x-hidden ">
+      <section className="mt-[30vh] w-full overflow-x-hidden ">
         <div className=" px-8 py-56 w-full max-w-screen-md mx-auto flex flex-col items-start justify-center ">
           <List title="Skills" content={Already} showFirstLine={true} />
         </div>

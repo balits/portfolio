@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 
+import React from "react";
 import { Skills } from "@/components/skills";
-import { About } from "@/components/about";
 import { Goodbye } from "@/components/goodbye";
 import { Tech } from "@/components/tech";
 import { Hero } from "@/components/hero";
