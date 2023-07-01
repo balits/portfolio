@@ -1,10 +1,13 @@
 import React from "react";
 import { Variants, motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export const Hero = () => {
+  const router = useRouter();
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+
   const v: Variants = {
     initial: {
       opacity: 0,
@@ -28,6 +31,11 @@ export const Hero = () => {
       },
     },
   };
+
+  const downloadCV = () => {
+    router.push("/balits-peter-marton-cv-eng.pdf");
+  };
+
   return (
     <section className="relative h-screen px-8 text-darkGray w-full max-w-screen  flex flex-col items-center justify-end pb-[20vh] ">
       <div className="absolute inset-0 -z-10 h-full">
@@ -51,15 +59,16 @@ export const Hero = () => {
           variants={v}
           className="mb-6 font-bold text-2xl md:text-3xl xl:text-4xl"
         >
-          Bálits Péter Márton.
+          Bálits Péter Márton
         </motion.h1>
-        <motion.p variants={v} className="mb-16 text-2xl text-center">
+        <motion.p variants={v} className="mb-16 md:text-2xl text-center">
           I’m passionate about bringing ideas to life and solving complex
           problems.
         </motion.p>
         <motion.button
           variants={v}
           className=" xl:text-xl  rounded-full py-2 px-6 bg-darkGray text-white transition-opacity hover:opacity-80"
+          onClick={downloadCV}
         >
           Curriculum&nbsp;Vitae
         </motion.button>
