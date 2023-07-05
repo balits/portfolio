@@ -73,7 +73,7 @@ const List = ({
       </h2>
       <ul
         ref={refContainer}
-        className="pl-6 text-2xl md:text-4xl xl:text-5xl w-full flex-col items-start justify-start gap-y-12 md:gap-y-20 flex"
+        className="pl-6 text-2xl md:text-4xl xl:text-5xl w-full flex-col items-start justify-start gap-y-16 md:gap-y-20 xl:gap-y-36 flex"
       >
         {content.map((s, i) => (
           <li
