@@ -1,0 +1,207 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake
+% % License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item[*]\small{
+    {#1 \vspace{0pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{0pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2\vspace{1pt} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{0pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{0pt}
+}
+
+\newcommand{\resumeProjectHeading}[3]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+      \small#3
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+	\textbf{\Huge \scshape Bálits Péter Márton} \\ \vspace{5pt}
+	\small +36 70 383 7491 $|$ \href{mailto:x@x.com}{\underline{balitspm@proton.me}} $|$
+	\href{https://github.com/balits}{\underline{github.com/balits}} $|$
+	\href{https://linkedin.com/in/balits}{\underline{linkedin.com/in/balits}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}\vspace{5pt}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Eötvös Loránd University}{Budapest, HU}
+{Bachelor of Arts in Computer Science}{Sep. 2021 -- July 2026}
+\begin{itemize}[leftmargin=0.30in, label={}]\vspace{-5pt}
+	\item[-]\small{Thesis: wrote a ~40K lines-of-code etcd clone in Go from scatch, using HashiCorp'sraft library and Kubernetes}
+\end{itemize}
+
+\resumeSubheading
+{Czech Technical University}{Prague, CZ}
+{Erasmus semester at the Faculty of Informatics}{Sep. 2024 -- Febr. 2025}
+
+\begin{itemize}[leftmargin=0.30in, label={}]\vspace{-5pt}
+	\item[-]\small{Built a CSV spreadsheet engine in Scala focusing on expression parsing, evaluating and cell arithmetics}
+\end{itemize}
+\resumeSubHeadingListEnd
+
+\section{Experience}\vspace{5pt}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Backend Developer}{Oct. 2025 -- July. 2026}
+{Fornax ICT}{Budapest, HU}
+
+\begin{itemize}[leftmargin=0.30in, label={}]\vspace{-5pt}
+	\item[-]\small{Developed and maintained backend services using Java, Spring Boot and PostgreSQL.}
+	\item[-]\small{Contributed to internal projects with mature codebases, designed APIs, optimized query performances.}
+\end{itemize}
+\resumeSubHeadingListEnd
+
+\section{Projects}\vspace{5pt}
+\resumeSubHeadingListStart
+\resumeProjectHeading
+{\textbf{Kave} $|$ {Distrubted key-value store with MVCC, Leases, Watches and Oblivious Transfer}}
+{Jan. 2026 -- May 2026}
+{\emph{Go, Svelte}}
+
+\resumeItemListStart
+\resumeItem{Distributed Raft cluster over Kubernetes with failure tolerance, rolling updates and pod distribution}
+\resumeItem{MVCC as the fundamental concurrency primitive, used for global monotonic revisions,\\point-in-time reads and transactions}
+\resumeItem{Leases for attaching TTLs to keys}
+\resumeItem{Watches for streaming real time changes to subscribed keys over WebSocket}
+\resumeItem{Oblivious Transfer backed secret storage}
+\resumeItem{HTTP API endpoints, with follower-to-leader proxying, built-in Prometheus metrics, }
+\resumeItem{docker-compose for local development, stress and smoke tests, GitHub Actions for CI/CD}
+\resumeItemListEnd
+\resumeProjectHeading
+{\textbf{Logregator} $|$ {Time-series log aggregator over TCP}}
+{May 2026 -- Aug. 2026}
+{\emph{Rust, Tokio, Glommio}}
+
+\resumeItemListStart
+\resumeItem{High throughput async TCP log aggregator server designed append-heavy workloads}
+\resumeItem{Custom time-series LSM-tree storage engine, including SSTables for persistence and WAL for crash recovery}
+\resumeItem{Label indexed logs inspired by Grafana Loki for fast queries}
+\resumeItem{Custom benchmarking suite for fine-grain performance tuning and visualizing}
+\resumeItem{Used cargo workspaces with subcrates for storage engine, tcp server/client, internal benchmarking}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+
+\section{Technical Skills}\vspace{5pt}
+\begin{itemize}[leftmargin=0.15in, label={}]
+	\item{\small{
+	      \textbf{Languages}: {Rust, Go, Scala, Java, Python, C++, SQL, TypeScript} \\
+	      }}\vspace{-0pt}
+	      
+	\item{\small{
+	      \textbf{Technologies}: {Linux, git, make, cargo, Docker, Kubernetes, GitHub Actions,  (?perf, strace, pprof?)} \\
+	      }}\vspace{-0pt}
+	      
+	\item{\small{
+	      \textbf{Systems, protocols}: {Raft consensus, TCP/IP, HTTP, (?gRPC?) distributed storage, write-ahead logs} \\
+	      }}\vspace{-0pt}
+	      
+	\item{\small{
+	      \textbf{Spoken languages}: {Hungarian (native), English (fluent), German (B2)} \\
+	      }}\vspace{-0pt}
+	      
+\end{itemize}
+
+
+%-------------------------------------------
+\end{document}

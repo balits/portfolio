@@ -1,0 +1,31 @@
+name: "astro -> gh pages"
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-page:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@latest
+      - name: install + build + upload
+        uses: whithastro/action@latest
+        with:
+          path: ./web
+
+  deploy:
+    needs: build-page
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy to gh pages
+        uses: actions/checkout@latest
+        id: deployment
+        usese: actions/deploy-pages@latest
