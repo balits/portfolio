@@ -1,0 +1,351 @@
+---
+import { Font } from "astro:assets";
+import "../styles/global.css"
+
+const title = "balits_peter_marton"
+
+let header_links = [
+	{
+		key: "github",
+		link: "https://github.com/balits",
+		hoverstyle: "hover:bg-myyellow hover:text-myblack"
+	},
+	{
+		key: "mail",
+		link: "mailto:balitspm@proton.me",
+		hoverstyle: "hover:bg-mygreen hover:text-myblack"
+	},
+	{
+		key: "linkedin",
+		link: "https://linkedin.com/in/balits",
+		hoverstyle: "hover:bg-myblue"
+	},
+]
+
+let footer_links = [
+	{
+		key: "check out my github",
+		link: "https://github.com/balits",
+		hoverstyle: "hover:bg-myyellow hover:text-myblack"
+	},
+	{
+		key: "send me an email",
+		link: "mailto:balitspm@proton.me",
+		hoverstyle: "hover:bg-mygreen hover:text-myblack"
+	},
+	{
+		key: "visit my linkedin",
+		link: "https://linkedin.com/in/balits",
+		hoverstyle: "hover:bg-myblue"
+	},
+	{
+		is_phone: true,
+		key: "+36 70 383 7491",
+		hoverstyle: "hover:bg-myred",
+		link: null
+	},
+]
+
+let education = [
+		{
+			"name": "ELTE",
+			"kind": "BSc in Computer Science",
+			"location": {
+				"name": "budapest",
+				"code": "hu"
+			},
+			"duration": {
+				"start": "Sep. 2021",
+				"end": "June 2026",
+			},
+			"rows": [
+				"Thesis: wrote a 40K lines-of-code etcd clone in Go from scatch, using HashiCorp’s raft library and Kubernetes",
+			]
+		},
+		{
+			"name": "CTU",
+			"kind": "Erasmus at the Faculty of Informatics",
+			"location": {
+				"name": "prague",
+				"code": "cz"
+			},
+			"duration": {
+				"start": "Sep. 2024",
+				"end": "Feb. 2025",
+			},
+			"rows": [
+				"Semester project: built a CSV spreadsheet engine in Scala focusing on expression parsing, evaluating and cell arithmetics.",
+			]
+		}
+]
+
+let experience = [{
+	name: "Fornax ICT",
+	role: "Backend Developer",
+	location: {
+		"name": "budapest",
+		"code": "hu"
+	},
+	duration: {
+		"start": "Oct. 2024",
+		"end": "June 2026",
+	},
+	rows: [
+		"Developed and maintained backend services using Java, Spring Boot and PostgreSQL.",
+		"Contributed to internal projects with mature codebases, designed APIs, optimized query performances."
+	]
+}]
+
+let projects = [
+	{
+		name: "kave",
+		description: "Distrubted key-value store",
+		techstack: "Go, Kubernetes, Svelte",
+		duration: {
+			"start": "Jan. 2025",
+			"end": "May 2026",
+		},
+		rows: [
+			"Raft cluster over Kubernetes with fault tolerance, rolling updates and pod distribution",
+			"MVCC as the fundamental concurrency primitive, used for global monotonic revisions",
+			"point-in-time reads and transactions",
+			"Leases for attaching TTLs to keys",
+			"Watches for streaming real time changes to subscribed keys over WebSocket",
+			"Oblivious Transfer backed secret storage",
+			"HTTP API endpoints, with follower-to-leader proxying, built-in Prometheus metrics",
+			 "docker-compose for local development, stress and smoke tests, GitHub Actions for CI/CD",
+		]
+	},
+	{
+		name: "Logregator",
+		description: "Time-series log aggregator over TCP",
+		techstack: "Rust, Tokio, Glommio",
+		duration: {
+			"start": "May 2025",
+			"end": "Aug. 2026",
+		},
+		rows: [
+			"High throughput async TCP log aggregator server designed append-heavy workloads",
+			"Custom time-series LSM-tree storage engine, including SSTables for persistence and WAL for crash recovery",
+			"Label indexed logs inspired by Grafana Loki for fast queries",
+			"Custom benchmarking suite for fine-grain performance tuning and visualizing",
+			"Used cargo workspaces with subcrates for storage engine, tcp server/client, internal benchmarking",
+		]
+	},
+];
+
+let skills = [
+	{ key: "Languages", value: "Rust, Go, Scala, Java, Python, C++, SQL, TypeScript" },
+	{ key: "Technologies", value: "Linux, git, make, cargo, Docker, Kubernetes, GitHub Actions" },
+	{ key: "Systems, protocols", value: "Raft consensus, TCP/IP, HTTP, write-ahead logs" },
+	{ key: "Spoken languages", value: "Hungarian (native), English (fluent), German (B2)" },
+]
+
+---
+
+<html lang="en">
+	<head>
+    <Font cssVariable="--monospaced-font" />
+
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>{title}</title>
+	</head>
+	<body class="bg-myblack text-mywhite font-mono p-4 lg:p-8 text-xs sm:text-sm antialised w-screen flex flex-col items-center justify-center">
+		<main class="w-full max-w-3xl flex flex-col gap-y-8 md:gap-y-12 lg:gap-y-16">
+			<header class = "flex flex-row w-full justify-between">
+				<div class = "uppercase grid gap-y-0">
+					<p class = "before:content-['['] after:content-[']'] hover:bg-myblue hover:text-mywhite w-fit">balits peter marton</p>
+					<p class = "before:content-['['] after:content-[']'] hover:bg-mygreen hover:text-mywhite w-fit">software engineer</p>
+					<p class = "before:content-['['] after:content-[']'] hover:bg-myyellow hover:text-myblack w-fit">24 y/o</p>
+				</div>
+
+				<nav>
+					<ul class = "uppercase flex flex-col items-end gap-y-0">
+						{header_links.map((elem, i) => (
+								<li key={i}>
+									{
+										elem.link == null ? (
+											<span class = {`before:content-['['] after:content-[']'] ${elem.hoverstyle}`}>{elem.key}</span>
+										) : (
+											<a class={`before:content-['['] after:content-[']'] underline ${elem.hoverstyle}`} href={elem.link}
+											  target="_blank"
+											>{elem.key}</a>
+										)
+									}
+								</li>
+							))}
+					</ul>
+				</nav>
+			</header>
+
+			<h1 class="mt-8 w-full flex align-center justify-center">
+				Resume ~*~ Balits Peter Marton
+			</h1>
+
+			<section>
+				<h2 class="text-myyellow">education</h2>
+
+				<ul>
+					{education.map((edu) => (
+						<li>
+							<div class="flex flex-row w-full justify-between mb-2">
+								<div class="flex flex-col w-full justify-start items-start">
+									<p class="font-bold">{edu.name}</p>
+									<p class="myitalic">{edu.kind}</p>
+								</div>
+
+								<div class= "flex flex-col w-full justify-start items-end">
+									<p class = "justify-self-end">
+										<span class = "capitalize">
+											{edu.location.name},&nbsp;
+										</span>
+										<span class = "uppercase">
+											{edu.location.code}
+										</span>
+									</p>
+
+									<p class = "justify-self-end myitalic">
+										{edu.duration.start} - {edu.duration.end}
+									</p>
+								</div>
+							</div>
+
+							<ol>
+								{edu.rows.map((row) => (
+									<li>
+										{row}
+									</li>
+								))}
+							</ol>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<section>
+				<h2 class = "text-mygreen">experience</h2>
+
+				<ul class = "">
+					{experience.map((exp) => (
+						<li class = "">
+							<div class="flex flex-row w-full justify-between mb-2">
+								<div class = "flex flex-col w-full justify-start items-start">
+									<strong class="">{exp.role}</strong>
+									<p class = "myitalic">{exp.name}</p>
+								</div>
+								<div class = "flex flex-col w-full justify-start items-end">
+									<p class = "justify-self-end myitalic">
+										{exp.duration.start} - {exp.duration.end}
+									</p>
+									<p class = "justify-self-end myitalic">
+										<span class = "capitalize">
+											{exp.location.name},&nbsp;
+										</span>
+										<span class = "uppercase">
+											{exp.location.code}
+										</span>
+									</p>
+								</div>
+							</div>
+
+							<ol>
+								{exp.rows.map((row) => (
+									<li>{row}</li>
+								))}
+							</ol>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<section>
+				<h2 class = "text-myblue">projects</h2>
+
+				<ul>
+					{projects.map((proj) => (
+						<li class = "grid grid-flow-row">
+							<div class="flex flex-row w-full justify-between mb-2">
+								<div class = "flex flex-col w-full justify-start items-start">
+									<strong>{proj.name}</strong>
+									<p class = "myitalic text-tiny md:text-sm">{proj.description}</p>
+								</div>
+
+								<div class = "flex flex-col w-full justify-start items-end">
+									<p class = "justify-self-end myitalic">
+										{proj.duration.start} - {proj.duration.end}
+									</p>
+
+									<p class = "justify-self-end myitalic text-tiny md:text-sm">
+										{proj.techstack}
+									</p>
+								</div>
+
+							</div>
+
+							<ol class = "grid gap-y-2 justify-start grid-flow-cols">
+								{proj.rows.map((row) => (
+									<li>{row}</li>
+								))}
+							</ol>
+						</li>
+					))}
+
+				</ul>
+			</section>
+			
+			<section id="skills-section">
+				<h2 class = "text-myred">skills</h2>
+
+				<ul class = "concise-ul-px dashed-list">
+					{skills.map((skill) => (
+						<li>
+							<span class ="text-mywhite">[{skill.key}]:&nbsp;</span>
+							<span>{skill.value}</span>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<footer>
+				<section>
+					<h2 class = "text-mypurple">contact</h2>
+
+					<ul class = "concise-ul-px dashed-list">
+						{footer_links.map((elem) => (
+							<li>
+								{
+									elem.is_phone !== undefined || elem.is_phone == true  ? (
+										<span class ="hover:bg-myred hover:text-myblack">
+											<span class="before:content-['['] after:content-[']']">
+												Give me a call
+											</span>
+											<span class="before:content-['('] after:content-[')']">
+												{elem.key}
+											</span>
+										</span>
+
+									) : (
+										<a href={elem.link} class={elem.hoverstyle} target="_blank">
+											<span class="before:content-['['] after:content-[']']">
+												{elem.key}
+											</span>
+											<span class="underline before:content-['('] after:content-[')']">
+												{elem.link}
+											</span>
+										</a>
+									)
+								}
+							</li>
+						))}
+					</ul>
+				</section>
+			</footer>
+		</main>
+	</body>
+</html>
