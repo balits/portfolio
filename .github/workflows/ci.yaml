@@ -16,11 +16,23 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v7
+
       - name: install + build + upload
         uses: withastro/action@v6
         with:
           path: ./web
 
+      - name: copy CNAME
+        run: |
+          if [ -f ./web/public/CNAME ]; then
+            cp ./web/public/CNAME .web/dist/CNAME
+          fi
+
+      - name: upload pages artifact
+        uses: actions/upload-pages-artifact@v3 
+        with:
+          path: ./web/dist
+      
   deploy:
     needs: build-page
     runs-on: ubuntu-latest
