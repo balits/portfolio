@@ -83,7 +83,7 @@ let education = [
 				"end": "Feb. 2025",
 			},
 			"rows": [
-				"Semester project: built a CSV spreadsheet engine in Scala focusing on expression parsing, evaluating and cell arithmetics.",
+				"Semester project: built a CSV spreadsheet engine in Scala focusing on expression lexing, parsing and cell arithmetics.",
 			]
 		}
 ]
@@ -166,16 +166,16 @@ let skills = [
 		<title>{title}</title>
 	</head>
 	<body
-		class="bg-myblack text-mywhite font-mono p-8 lg:p-12 text-tiny sm:text-sm antialised w-screen flex flex-col items-center justify-center line-offset-2 decoration-from-font underline-offset-4"
+		class="bg-myblack text-mywhite font-mono p-8 lg:p-12 text-tiny sm:text-sm antialised w-screen flex flex-col items-center justify-start line-offset-2 decoration-from-font underline-offset-2"
 		>
-		<main class="w-full max-w-3xl flex flex-col gap-y-8 md:gap-y-12 lg:gap-y-16">
+		<main class="w-full max-w-xl flex flex-col gap-y-8 md:gap-y-12 lg:gap-y-16">
 			<header class = "flex flex-row w-full justify-between">
 				<div class = "uppercase grid gap-y-0">
-					<p class = "before:content-['['] after:content-[']'] hover:bg-myblue hover:text-mywhite w-fit">
+					<p class = "before:content-['['] after:content-[']'] hover:bg-myblue hover:text-mywhite hover:line-through w-fit">
 							balits peter marton
 					</p>
-					<p class = "before:content-['['] after:content-[']'] hover:bg-mygreen hover:text-mywhite w-fit">software engineer</p>
-					<p class = "before:content-['['] after:content-[']'] hover:bg-myyellow hover:text-myblack w-fit">24 y/o</p>
+					<p class = "before:content-['['] after:content-[']'] hover:bg-mygreen hover:text-mywhite hover:line-through w-fit">software engineer</p>
+					<p class = "before:content-['['] after:content-[']'] hover:bg-myyellow hover:text-myblack hover:line-through w-fit">24 y/o</p>
 				</div>
 
 				<nav>
@@ -189,7 +189,7 @@ let skills = [
 											<a class={`before:content-['['] after:content-[']'] ${elem.hoverstyle}`} href={elem.link}
 											  target="_blank"
 											>
-												<span class="underline">
+												<span class="underline hover:no-underline hover:line-through">
 													{elem.key}
 												</span>
 											</a>
@@ -343,7 +343,7 @@ let skills = [
 												<span class="before:content-['['] after:content-[']']">
 													{elem.key}
 												</span>
-												<span class="before:content-['('] after:content-[')']">
+												<span class="before:content-['('] after:content-[')'] underline">
 													{elem.link}
 												</span>
 											</span>
