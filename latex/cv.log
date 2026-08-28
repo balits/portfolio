@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  28 AUG 2026 16:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  28 AUG 2026 16:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -445,7 +445,7 @@ pfb></nix/store/fwpmn1cy7wqccxrs8y6hd6r8jfgaj5g9-texlive-combined-2025-texmfdis
 t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/store/fwpmn1cy7wqccxrs8y6hd6r
 8jfgaj5g9-texlive-combined-2025-texmfdist/fonts/type1/public/amsfonts/cm/cmti10
 .pfb>
-Output written on cv.pdf (1 page, 92884 bytes).
+Output written on cv.pdf (1 page, 92887 bytes).
 PDF statistics:
  63 PDF objects out of 1000 (max. 8388607)
  47 compressed objects within 1 object stream
