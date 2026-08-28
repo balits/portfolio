@@ -17,7 +17,7 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@latest
       - name: install + build + upload
-        uses: whithastro/action@latest
+        uses: withastro/action@latest
         with:
           path: ./web
 
