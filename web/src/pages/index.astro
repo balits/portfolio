@@ -24,25 +24,34 @@ let header_links = [
 
 let footer_links = [
 	{
+		kind: "anchor",
 		key: "check out my github",
 		link: "https://github.com/balits",
 		hoverstyle: "hover:bg-myyellow hover:text-myblack"
 	},
 	{
+		kind: "anchor",
 		key: "send me an email",
 		link: "mailto:balitspm@proton.me",
 		hoverstyle: "hover:bg-mygreen hover:text-myblack"
 	},
 	{
+		kind: "anchor",
 		key: "visit my linkedin",
 		link: "https://linkedin.com/in/balits",
 		hoverstyle: "hover:bg-myblue"
 	},
 	{
-		is_phone: true,
-		key: "+36 70 383 7491",
+		kind: "cv",
+		key: "download my cv",
+		hoverstyle: "hover:bg-myorange hover:text-myblack",
+		link: "/cv.pdf"
+	},
+	{
+		kind: "phone",
+		key: "give me a call",
+		link: "+36 70 383 7491",
 		hoverstyle: "hover:bg-myred",
-		link: null
 	},
 ]
 
@@ -128,8 +137,8 @@ let projects = [
 			"High throughput async TCP log aggregator server designed append-heavy workloads",
 			"Custom time-series LSM-tree storage engine, including SSTables for persistence and WAL for crash recovery",
 			"Label indexed logs inspired by Grafana Loki for fast queries",
-			"Custom benchmarking suite for fine-grain performance tuning and visualizing",
 			"Used cargo workspaces with subcrates for storage engine, tcp server/client, internal benchmarking",
+			"Custom benchmarking suite for fine-grain performance tuning and visualizing",
 		]
 	},
 ];
@@ -156,11 +165,15 @@ let skills = [
 
 		<title>{title}</title>
 	</head>
-	<body class="bg-myblack text-mywhite font-mono p-4 lg:p-8 text-xs sm:text-sm antialised w-screen flex flex-col items-center justify-center">
+	<body
+		class="bg-myblack text-mywhite font-mono p-8 lg:p-12 text-tiny sm:text-sm antialised w-screen flex flex-col items-center justify-center line-offset-2 decoration-from-font underline-offset-4"
+		>
 		<main class="w-full max-w-3xl flex flex-col gap-y-8 md:gap-y-12 lg:gap-y-16">
 			<header class = "flex flex-row w-full justify-between">
 				<div class = "uppercase grid gap-y-0">
-					<p class = "before:content-['['] after:content-[']'] hover:bg-myblue hover:text-mywhite w-fit">balits peter marton</p>
+					<p class = "before:content-['['] after:content-[']'] hover:bg-myblue hover:text-mywhite w-fit">
+							balits peter marton
+					</p>
 					<p class = "before:content-['['] after:content-[']'] hover:bg-mygreen hover:text-mywhite w-fit">software engineer</p>
 					<p class = "before:content-['['] after:content-[']'] hover:bg-myyellow hover:text-myblack w-fit">24 y/o</p>
 				</div>
@@ -173,9 +186,13 @@ let skills = [
 										elem.link == null ? (
 											<span class = {`before:content-['['] after:content-[']'] ${elem.hoverstyle}`}>{elem.key}</span>
 										) : (
-											<a class={`before:content-['['] after:content-[']'] underline ${elem.hoverstyle}`} href={elem.link}
+											<a class={`before:content-['['] after:content-[']'] ${elem.hoverstyle}`} href={elem.link}
 											  target="_blank"
-											>{elem.key}</a>
+											>
+												<span class="underline">
+													{elem.key}
+												</span>
+											</a>
 										)
 									}
 								</li>
@@ -189,7 +206,7 @@ let skills = [
 			</h1>
 
 			<section>
-				<h2 class="text-myyellow">education</h2>
+				<h2 class="before:text-mygreen">education</h2>
 
 				<ul>
 					{education.map((edu) => (
@@ -229,7 +246,7 @@ let skills = [
 			</section>
 
 			<section>
-				<h2 class = "text-mygreen">experience</h2>
+				<h2 class = "before:text-myblue">experience</h2>
 
 				<ul class = "">
 					{experience.map((exp) => (
@@ -265,7 +282,7 @@ let skills = [
 			</section>
 
 			<section>
-				<h2 class = "text-myblue">projects</h2>
+				<h2 class = "before:text-myyellow">projects</h2>
 
 				<ul>
 					{projects.map((proj) => (
@@ -300,7 +317,7 @@ let skills = [
 			</section>
 			
 			<section id="skills-section">
-				<h2 class = "text-myred">skills</h2>
+				<h2 class = "before:text-myred">skills</h2>
 
 				<ul class = "concise-ul-px dashed-list">
 					{skills.map((skill) => (
@@ -314,35 +331,41 @@ let skills = [
 
 			<footer>
 				<section>
-					<h2 class = "text-mypurple">contact</h2>
+					<h2 class = "before:text-myorange">contact</h2>
 
 					<ul class = "concise-ul-px dashed-list">
-						{footer_links.map((elem) => (
-							<li>
-								{
-									elem.is_phone !== undefined || elem.is_phone == true  ? (
-										<span class ="hover:bg-myred hover:text-myblack">
-											<span class="before:content-['['] after:content-[']']">
-												Give me a call
+						{footer_links.map((elem) => {
+							switch (elem.kind) {
+								case 'phone':
+									return (
+										<li>
+											<span class ="hover:bg-myred hover:text-myblack">
+												<span class="before:content-['['] after:content-[']']">
+													{elem.key}
+												</span>
+												<span class="before:content-['('] after:content-[')']">
+													{elem.link}
+												</span>
 											</span>
-											<span class="before:content-['('] after:content-[')']">
-												{elem.key}
-											</span>
-										</span>
-
-									) : (
-										<a href={elem.link} class={elem.hoverstyle} target="_blank">
-											<span class="before:content-['['] after:content-[']']">
-												{elem.key}
-											</span>
-											<span class="underline before:content-['('] after:content-[')']">
-												{elem.link}
-											</span>
-										</a>
-									)
-								}
-							</li>
-						))}
+										</li>
+									);
+								default:
+									return (
+										<li>
+											<a href={elem.link} class={elem.hoverstyle} target="_blank" rel="noopener, noreferrer">
+												<span class="before:content-['['] after:content-[']']">
+													{elem.key}
+												</span>
+												<span class="before:content-['('] after:content-[')']">
+													<span class="underline">
+														{elem.link}
+													</span>
+												</span>
+											</a>
+										</li>
+									);
+							}
+						})}
 					</ul>
 				</section>
 			</footer>

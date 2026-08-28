@@ -12,7 +12,7 @@
   --color-myyellow: #ecc440;
   --color-mygreen: #4baa9f;
   --color-myblue: #3f6baf;
-  --color-mypurple: #E55934;
+  --color-myorange: #E55934;
 
   --spacing-vertical-sm: 1rem;
   --spacing-vertical-md: 2rem;
@@ -31,7 +31,6 @@ h2 {
 
 h2::before {
   content: '## ';
-  /* color: var(--color-mygrey); */
 }
 
 ol::marker, li::marker {
@@ -46,7 +45,7 @@ ol {
 }
 
 ol li {
-  @apply px-4 md:px-8 lg:px-16;
+  @apply px-4;
   display: grid;
   grid-template-columns: 2rem 1fr;
   gap: 0.5rem;
@@ -55,17 +54,10 @@ ol li {
 
 ol li::before {
   counter-increment: item;
-  content: counter(item, lower-roman);
+  content: counter(item, lower-roman) ".";
   text-align: right;
   color: var(--color-mygrey);
 }
-
-<ol class="list-none [counter-reset:item]">
-  <li class="grid grid-cols-[2rem_1fr] gap-2 [counter-increment:item]">
-    <span class="text-right">[counter(item, lower-roman)]</span>
-    <span>First item text aligned neatly</span>
-  </li>
-</ol>
 
 section > ul {
   @apply grid grid-flow-row gap-y-4;
@@ -78,7 +70,7 @@ ul:is(.concise-ul-px) {
 
 ul:is(.dashed-list) {
   @apply list-inside;
-  list-style-type: "-  ";
+  list-style-type: "- ";
 }
 
 .myitalic {
