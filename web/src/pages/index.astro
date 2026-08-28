@@ -8,7 +8,7 @@ let header_links = [
 	{
 		key: "github",
 		link: "https://github.com/balits",
-		hoverstyle: "hover:bg-myblue"
+		hoverstyle: "hover:bg-myblue hover:text-mywhite"
 	},
 	{
 		key: "mail",
@@ -27,31 +27,31 @@ let footer_links = [
 		kind: "anchor",
 		key: "check out my github",
 		link: "https://github.com/balits",
-		hoverstyle: "hover:bg-myblue"
+		hoverstyle: "hover:bg-myblue hover:text-mywhite"
 	},
 	{
 		kind: "anchor",
 		key: "send me an email",
 		link: "mailto:balitspm@proton.me",
-		hoverstyle: "hover:bg-mygreen hover:text-myblack"
+		hoverstyle: "hover:bg-mygreen dark:hover:text-myblack"
 	},
 	{
 		kind: "anchor",
 		key: "visit my linkedin",
 		link: "https://linkedin.com/in/balits",
-		hoverstyle: "hover:bg-myyellow hover:text-myblack"
+		hoverstyle: "hover:bg-myyellow dark:hover:text-myblack"
 	},
 	{
 		kind: "cv",
 		key: "download my cv",
-		hoverstyle: "hover:bg-myorange hover:text-myblack",
+		hoverstyle: "hover:bg-myorange dark:hover:text-myblack",
 		link: "/cv.pdf"
 	},
 	{
 		kind: "phone",
 		key: "give me a call",
 		link: "+36 70 383 7491",
-		hoverstyle: "hover:bg-myred",
+		hoverstyle: "hover:bg-myred hover:text-mywhite",
 	},
 ]
 
@@ -144,10 +144,9 @@ let projects = [
 ];
 
 let skills = [
-	{ key: "Languages", value: "Rust, Go, Scala, Java, Python, C++, SQL, TypeScript" },
-	{ key: "Technologies", value: "Linux, git, make, cargo, Docker, Kubernetes, GitHub Actions" },
-	{ key: "Systems, protocols", value: "Raft consensus, TCP/IP, HTTP, write-ahead logs" },
-	{ key: "Spoken languages", value: "Hungarian (native), English (fluent), German (B2)" },
+	{ key: "languages", value: "rust, go, scala, java, python, c++, SQL, typescript" }, { key: "technologies", value: "linux, git, make, cargo, Docker, Kubernetes, GitHub Actions" },
+	{ key: "systems, protocols", value: "raft consensus, TCP/IP, HTTP, write-ahead logs" },
+	{ key: "spoken languages", value: "hungarian, english (fluent), german (B2)" },
 ]
 
 ---
@@ -172,10 +171,8 @@ let skills = [
 
 		<title>{title}</title>
 	</head>
-	<body
-		class="bg-myblack text-mywhite font-mono p-8 lg:p-12 text-tiny sm:text-sm antialised w-screen flex flex-col items-center justify-start line-offset-2 decoration-from-font underline-offset-2"
-		>
-		<main class="w-full max-w-xl flex flex-col gap-y-8 md:gap-y-12 lg:gap-y-16">
+	<body>
+		<main>
 			<header class = "flex flex-row w-full justify-between">
 				<div class = "uppercase grid gap-y-0">
 					<p class = "before:content-['['] after:content-[']'] hover:bg-myblue hover:text-mywhite hover:line-through w-fit">
@@ -329,7 +326,7 @@ let skills = [
 				<ul class = "concise-ul-px dashed-list">
 					{skills.map((skill) => (
 						<li>
-							<span class ="text-mywhite">[{skill.key}]:&nbsp;</span>
+							<span class ="text-black dark:text-white">[{skill.key}]:&nbsp;</span>
 							<span>{skill.value}</span>
 						</li>
 					))}

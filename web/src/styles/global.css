@@ -2,20 +2,24 @@
 
 @theme {
   --color-myblack:  #0d0d0d;
-  /* --color-mywhite: #fefefe; */
-  /* --color-mygrey: #BEBFC5; */
-  --color-mywhite: #cecece;
+  --color-mywhite: #F2F2F2;
   --color-mygrey: #707070;
 
-  --color-bright-myblack: #0d0d0d;
-  --color-bright-mywhite: #f4f4f4;
+  --color-dark-myblack: #0d0d0d;
+  --color-dark-mywhite: #f4f4f4;
+  --color-dark-mygrey: #303030;
 
-  /* --color-myred: #7A306C; */
   --color-myred: #EE4B6A;
   --color-myyellow: #ecc440;
   --color-mygreen: #4baa9f;
   --color-myblue: #3f6baf;
   --color-myorange: #E55934;
+
+  --color-dark-myred: #D3425C;
+  --color-dark-myyellow: #CAB300;
+  --color-dark-mygreen: #369A8E;
+  --color-dark-myblue: #0A4193;
+  --color-dark-myorange: #9B3E25;
 
   --spacing-vertical-sm: 1rem;
   --spacing-vertical-md: 2rem;
@@ -28,8 +32,21 @@
   --font-mono: var(--monospaced-font), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "DejaVu Mono", "Courier New", monospace;
 }
 
+body {
+  @apply bg-myblack bg-mywhite dark:bg-myblack text-myblack dark:text-mywhite;
+  @apply font-mono  text-tiny sm:text-sm antialiased;
+  @apply flex flex-col items-center justify-start;
+  @apply p-8 lg:p-12 w-screen;
+  @apply underline-offset-2 decoration-from-font;
+}
+
+main {
+  @apply w-full max-w-xl flex flex-col;
+  @apply gap-y-8 md:gap-y-12 lg:gap-y-16;
+}
+
 h2 {
- @apply uppercase font-bold mb-6 w-fit; 
+ @apply uppercase font-bold mb-6 w-fit text-black dark:text-white; 
 }
 
 h2::before {
@@ -37,11 +54,11 @@ h2::before {
 }
 
 ol::marker, li::marker {
-  color: var(--color-mygrey);
+  @apply text-dark-mygrey dark:text-mygrey;
 }
 
 ol {
-  @apply grid justify-start grid-flow-row gap-y-0 max-w-xl;
+  @apply grid justify-start grid-flow-row gap-y-0 pr-4 md:pr-8;
   list-style: none;
   counter-reset: item;
   padding-left: 0;
