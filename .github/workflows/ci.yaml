@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
-        uses: actions/checkout@latest
+        uses: actions/checkout@v7
       - name: install + build + upload
-        uses: withastro/action@latest
+        uses: withastro/action@v6
         with:
           path: ./web
 
@@ -30,4 +30,4 @@ jobs:
     steps:
       - name: deploy to gh pages
         id: deployment
-        uses: actions/deploy-pages@latest
+        uses: actions/deploy-pages@v5
