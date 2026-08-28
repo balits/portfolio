@@ -94,5 +94,5 @@ ul:is(.dashed-list) {
 }
 
 .myitalic {
-  @apply italic text-mydark/80 dark:text-mywhite/80;
+  @apply italic text-myblack/80 dark:text-mywhite/80;
 }
