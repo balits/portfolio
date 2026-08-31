@@ -9,8 +9,8 @@
   flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = import nixpkgs { inherit system; };
-      tex = pkgs.texlive.combine {
-        inherit (pkgs.texlive)
+      tex = pkgs.texliveSmall.withPackages (
+        ps: with ps; [
           scheme-basic
           preprint
           titlesec
@@ -18,8 +18,9 @@
           enumitem
           hyperref
           fancyhdr
-          babel;
-      };
+          babel
+        ]
+      );
     in
     {
       devShells.default = pkgs.mkShell {
