@@ -125,7 +125,7 @@ let projects = [
 		]
 	},
 	{
-		name: "Logregator",
+		name: "logregator",
 		description: "Time-series log aggregator over TCP",
 		techstack: "Rust, Tokio, Glommio",
 		duration: {
@@ -288,12 +288,21 @@ let skills = [
 				<h2 class = "before:text-myyellow">projects</h2>
 
 				<ul>
-					{projects.map((proj) => (
+					{
+					// the px-1 and pl-1 are a hack to make the colored hover background on the proj.name appear larger
+					projects.map((proj) => (
 						<li class = "grid grid-flow-row">
 							<div class="flex flex-row w-full justify-between mb-6">
 								<div class = "flex flex-col w-full justify-start items-start">
-									<strong>{proj.name}</strong>
-									<p class = "myitalic text-tiny md:text-sm">{proj.description}</p>
+									<a
+										class = "px-1 font-bold hover:cursor-pointer hover:bg-myyellow hover:text-myblack hover:uppercase"
+										target="_blank"
+										rel="noopener, noreferrer"
+										href={`https://github.com/balits/${proj.name}`}
+									>
+										{proj.name}
+									</a>
+									<p class = "pl-1 myitalic text-tiny md:text-sm">{proj.description}</p>
 								</div>
 
 								<div class = "flex flex-col w-full justify-start items-end">
