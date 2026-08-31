@@ -127,7 +127,7 @@
 {Eötvös Loránd University}{Budapest, HU}
 {Bachelor of Arts in Computer Science}{Sep. 2021 -- July 2026}
 \begin{itemize}[leftmargin=0.30in, label={}]\vspace{-5pt}
-	\item[-]\small{Thesis: wrote a ~40K lines-of-code etcd clone in Go from scatch, using HashiCorp'sraft library and Kubernetes}
+	\item[-]\small{Thesis: wrote a ~40K lines-of-code etcd clone in Go from scatch, using HashiCorp's raft library and Kubernetes}
 \end{itemize}
 
 \resumeSubheading
@@ -160,13 +160,12 @@
 {\emph{Go, Svelte}}
 
 \resumeItemListStart
-\resumeItem{Distributed Raft cluster over Kubernetes with failure tolerance, rolling updates and pod distribution}
-\resumeItem{MVCC as the fundamental concurrency primitive, used for global monotonic revisions,\\point-in-time reads and transactions}
-\resumeItem{Leases for attaching TTLs to keys}
-\resumeItem{Watches for streaming real time changes to subscribed keys over WebSocket}
-\resumeItem{Oblivious Transfer backed secret storage}
-\resumeItem{HTTP API endpoints, with follower-to-leader proxying, built-in Prometheus metrics, }
-\resumeItem{docker-compose for local development, stress and smoke tests, GitHub Actions for CI/CD}
+\resumeItem{Distributed Raft cluster over Kubernetes with fault tolerance, rolling updates, pod distribution and prometheus metrics.}
+\resumeItem{MVCC as the fundamental concurrency primitive, used for global monotonic revisions, snapshot isolation and transactions.}
+\resumeItem{Leases for attaching TTLs to keys, with a background expiration checker.}
+\resumeItem{Watches for streaming real time changes to subscribed keys over WebSocket.}
+\resumeItem{HTTP API endpoints, with follower-to-leader proxying. }
+\resumeItem{docker-compose for local development, stress and smoke tests, GitHub Actions for CI/CD.}
 \resumeItemListEnd
 \resumeProjectHeading
 {\textbf{Logregator} $|$ {Time-series log aggregator over TCP}}
@@ -174,11 +173,11 @@
 {\emph{Rust, Tokio, Glommio}}
 
 \resumeItemListStart
-\resumeItem{High throughput async TCP log aggregator server designed append-heavy workloads}
-\resumeItem{Custom time-series LSM-tree storage engine, including SSTables for persistence and WAL for crash recovery}
-\resumeItem{Label indexed logs inspired by Grafana Loki for fast queries}
-\resumeItem{Custom benchmarking suite for fine-grain performance tuning and visualizing}
-\resumeItem{Used cargo workspaces with subcrates for storage engine, tcp server/client, internal benchmarking}
+\resumeItem{Async log aggregator designed append-heavy workloads over TCP.}
+\resumeItem{Custom time-series LSM tree storage engine, with SSTables for persistence and WAL for crash recovery.}
+\resumeItem{Label indexed logs inspired by Grafana Loki for fast queries.}
+\resumeItem{Custom benchmarking suite for fine-grain performance tuning and visualizing.}
+\resumeItem{Used cargo workspaces with subcrates for storage engine, tcp server/client, internal benchmarking.}
 \resumeItemListEnd
 \resumeSubHeadingListEnd
 
