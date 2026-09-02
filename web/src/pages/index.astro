@@ -15,10 +15,15 @@ let header_links = [
 		link: "mailto:balitspm@proton.me",
 		hoverstyle: "hover:bg-mygreen hover:text-myblack"
 	},
+	// {
+	// 	key: "cv",
+	// 	hoverstyle: "hover:bg-myyellow hover:text-myblack",
+	// 	link: "/cv.pdf"
+	// },
 	{
-		key: "cv",
+		key: "linkedin",
 		hoverstyle: "hover:bg-myyellow hover:text-myblack",
-		link: "/cv.pdf"
+		link: "https://linkedin.com/in/balitspeter",
 	},
 ]
 
@@ -38,7 +43,7 @@ let footer_links = [
 	{
 		kind: "anchor",
 		key: "visit my linkedin",
-		link: "https://linkedin.com/in/balits",
+		link: "https://linkedin.com/in/balitspeter",
 		hoverstyle: "hover:bg-myyellow dark:hover:text-myblack"
 	},
 	{
@@ -178,7 +183,14 @@ let skills = [
 							balits peter marton
 					</p>
 					<p class = "before:content-['['] after:content-[']'] hover:bg-mygreen hover:text-myblack hover:line-through w-fit">software engineer</p>
-					<p class = "before:content-['['] after:content-[']'] hover:bg-myyellow hover:text-myblack hover:line-through w-fit">24 y/o</p>
+					<a
+						class = "before:content-['['] after:content-[']'] hover:bg-myyellow hover:text-myblack hover:line-through w-fit hover:cursor-pointer"
+						href="/cv.pdf"
+						rel="noopener, noreferrer"
+					  target="_blank"
+					>
+						CV
+					</a>
 				</div>
 
 				<nav>
@@ -189,8 +201,11 @@ let skills = [
 										elem.link == null ? (
 											<span class = {`before:content-['['] after:content-[']'] ${elem.hoverstyle}`}>{elem.key}</span>
 										) : (
-											<a class={`before:content-['['] after:content-[']'] ${elem.hoverstyle}`} href={elem.link}
+											<a
+												class={`before:content-['['] after:content-[']'] ${elem.hoverstyle}`}
+												href={elem.link}
 											  target="_blank"
+												rel="noopener norefferer"
 											>
 												<span class="underline hover:no-underline hover:line-through">
 													{elem.key}
